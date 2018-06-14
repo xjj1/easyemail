@@ -28,10 +28,7 @@ func (m *EasyEmail) SendMail() (err error) {
 	rcpt := strings.Split(m.To, ";")
 	mail.SetHeader("To", rcpt...)
 	mail.SetHeader("Subject", m.Subject)
-	//m.SetBody("text/html", "")
 	mail.SetBody(m.BodyType, m.Body)
-	//m.SetBody("text/plain", out)
-	//m.Attach(fname)
 	for _, fname := range m.Attachments {
 		mail.Attach(fname)
 	}
